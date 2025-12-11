@@ -2,10 +2,211 @@
 <html>
 <head>
   <title>Please wait, the site is brewing~</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #e8d5e8 0%, #d5e8f0 100%);
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #4a4a4a;
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .coffee-animation {
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .coffee-mug {
+      width: 160px;
+      height: 160px;
+      position: relative;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .mug-body {
+      width: 120px;
+      height: 100px;
+      background: #8B4513;
+      border: 8px solid #654321;
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      box-shadow: 
+        inset 8px 8px 0 #654321,
+        inset -8px -8px 0 #A0522D;
+    }
+
+    .mug-handle {
+      width: 32px;
+      height: 56px;
+      border: 8px solid #654321;
+      border-left: none;
+      position: absolute;
+      right: 0;
+      bottom: 20px;
+      border-radius: 0 16px 16px 0;
+    }
+
+    .coffee-surface {
+      width: 104px;
+      height: 20px;
+      background: #3E2723;
+      position: absolute;
+      top: 8px;
+      left: 28px;
+      box-shadow: inset 0 4px 0 #2C1810;
+    }
+
+    .steam {
+      position: absolute;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .steam-particle {
+      width: 8px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.6);
+      position: absolute;
+      animation: rise linear infinite;
+    }
+
+    .steam-particle:nth-child(1) {
+      left: 20px;
+      animation-duration: 2s;
+      animation-delay: 0s;
+    }
+
+    .steam-particle:nth-child(2) {
+      left: 40px;
+      animation-duration: 2.5s;
+      animation-delay: 0.3s;
+    }
+
+    .steam-particle:nth-child(3) {
+      left: 60px;
+      animation-duration: 2.2s;
+      animation-delay: 0.6s;
+    }
+
+    .steam-particle:nth-child(4) {
+      left: 30px;
+      animation-duration: 2.8s;
+      animation-delay: 0.9s;
+    }
+
+    .steam-particle:nth-child(5) {
+      left: 50px;
+      animation-duration: 2.3s;
+      animation-delay: 1.2s;
+    }
+
+    @keyframes rise {
+      0% {
+        bottom: 0;
+        opacity: 1;
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(8px);
+      }
+      100% {
+        bottom: 80px;
+        opacity: 0;
+        transform: translateX(0);
+      }
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin: 20px 0;
+      text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+      letter-spacing: 2px;
+    }
+
+    h4 {
+      font-size: 1.5em;
+      margin: 15px 0;
+      font-weight: normal;
+      color: #666;
+    }
+
+    p {
+      font-size: 1.2em;
+      font-style: italic;
+      color: #888;
+      margin-top: 10px;
+    }
+
+    .pixel-border {
+      border: 4px solid #4a4a4a;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 
+        8px 8px 0 rgba(0, 0, 0, 0.1),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8em; }
+      h4 { font-size: 1.2em; }
+      p { font-size: 1em; }
+      .coffee-mug {
+        width: 120px;
+        height: 120px;
+      }
+      .mug-body {
+        width: 90px;
+        height: 75px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Please wait, the site is brewing~</h1>
-  <h4>Meanwhile, lmk what type of coffee do you like?</h4>
-  <p>(I like mine black)</p>
+  <div class="container">
+    <div class="pixel-border">
+      <div class="coffee-animation">
+        <div class="steam">
+          <div class="steam-particle"></div>
+          <div class="steam-particle"></div>
+          <div class="steam-particle"></div>
+          <div class="steam-particle"></div>
+          <div class="steam-particle"></div>
+        </div>
+        <div class="coffee-mug">
+          <div class="coffee-surface"></div>
+          <div class="mug-body"></div>
+          <div class="mug-handle"></div>
+        </div>
+      </div>
+      <h1>Please wait, the site is brewing~</h1>
+      <h4>Meanwhile, lmk what type of coffee do you like?</h4>
+      <p>(I like mine black)</p>
+    </div>
+  </div>
 </body>
 </html>
